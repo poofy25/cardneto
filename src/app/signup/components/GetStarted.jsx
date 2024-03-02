@@ -17,7 +17,7 @@ export default function SignUpGetStarted( {setStep},{setCardInfo}) {
 
   return (
     <section className={styles.signupForm}>
-        <h2>Let's get started</h2>
+        <h2>Lets get started</h2>
         <p>Create your Cardneto digital business card in 3 simple steps. First, lets start with your name.</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
