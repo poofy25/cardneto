@@ -1,0 +1,21 @@
+@import '/src/styles/_variables.scss';
+
+html , body , #root{
+    margin: 0;
+    background-color: $white;
+    scroll-behavior: smooth;
+    color: $textColor; 
+    line-height: 1.4rem;
+
+}
+
+p{
+    line-height: 1.4rem;
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+input{
+    font-size: 1rem;
+}
