@@ -16,6 +16,9 @@ button {
     font-family: inherit;
     cursor: pointer;
 }
+button:disabled{
+    opacity: 0.5;
+}
 input{
     font-size: 1rem;
 }

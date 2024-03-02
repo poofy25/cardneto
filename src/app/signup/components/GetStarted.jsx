@@ -1,17 +1,22 @@
 "use client"
 
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 import styles from "./components.module.scss";
 
 
-export default function SignUpGetStarted( {setStep},{setCardInfo}) {
+export default function SignUpGetStarted({cardInfo , setCardInfo , setStep}) {
 
-  const [name, setName] = useState("")
+  const [name, setName] = useState(cardInfo?.name)
 
+  // This syncs the card info with the current form value
+  useEffect(()=>{
+    setCardInfo(current=>({...current , name:name}))
+  },[name])
+
+  // This sets the next step
   const handleSubmit = (e) => {
     e.preventDefault()
-    setCardInfo(current=>({...current , name:name}))
     setStep(2)
   }
 
@@ -28,7 +33,7 @@ export default function SignUpGetStarted( {setStep},{setCardInfo}) {
                 value={name}
                 required type="text"/>
             </div>
-            <button>Continue</button>
+            <button disabled={name==="" ? true : false} >Continue</button>
         </form>
     </section>
   );
