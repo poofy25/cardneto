@@ -1,8 +1,11 @@
+
 import { Metadata } from "next";
 import { Onest } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "/src/styles/index.scss";
+import Provider from "@/lib/auth/Provider";
+
 
 const onest = Onest({ subsets: ["latin"] });
 
@@ -16,11 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" >
+      <Provider>
       <body className={onest.className}>
-        {children}
-        <Analytics/>
-        <SpeedInsights/>
+          {children}
+          <Analytics/>
+          <SpeedInsights/>
       </body>
+      </Provider>
     </html>
   );
 }
