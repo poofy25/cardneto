@@ -5,7 +5,7 @@ export async function middleware(request) {
   const { pathname } = request.nextUrl;
   const url = request.nextUrl.clone();
 
-  const cookie = request.cookies.get("next-auth.session-token");
+  const cookie = request.cookies.get("next-auth.session-token") || request.cookies.get("__Secure-next-auth.session-token")
   const sessionToken = cookie?.value;
 
   const decoded = await decode({
