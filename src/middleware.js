@@ -7,6 +7,9 @@ export async function middleware(request) {
 
   const cookie = request.cookies.get("next-auth.session-token") || request.cookies.get("__Secure-next-auth.session-token")
   const sessionToken = cookie?.value;
+  console.log(cookie , sessionToken)
+  console.log(request.cookies.get("next-auth.session-token"))
+  console.log(request.cookies.get("__Secure-next-auth.session-token"))
 
   const decoded = await decode({
     token: sessionToken,
